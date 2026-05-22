@@ -8,8 +8,15 @@ int main(int argc, const char* argv[]) {
     FILE* fp = fopen(argv[1], "r");
     const char* target_str = argv[2];
 
+    if (fp == NULL)
+        return 0;
 
-    
+    char buffer[1024];
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        if (strstr(buffer, target_str) != NULL) {
+            printf("%s", buffer);
+        }
+    }
+
     fclose(fp);
 }
-
