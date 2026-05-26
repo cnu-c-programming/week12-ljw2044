@@ -13,8 +13,9 @@ int main(void) {
         }
         printf("Press Enter to continue...");
         char c = getc(stdin);
-        if (c != '\n')
+        if (c != '\n') {
             break;
+        }
     }
     fclose(fp);
     return 0;
