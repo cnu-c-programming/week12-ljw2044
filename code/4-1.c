@@ -9,17 +9,14 @@
 #endif
 
 int main(void) {
+    printf("[1] before fflush - ");
+    sleep_sec(2);
+    printf("(2s elapsed, no fflush)\n");
 
-    for (int i=0; i<10; i++)
-        fputs("1111", stdout);
-    sleep_sec(1);
-    fputc('\n', stdout);
-
-    for (int i=0; i<10; i++)
-        fputs("2222", stdout);
+    printf("[2] after explicit fflush - ");
     fflush(stdout);
-    sleep_sec(1);
-    fputc('\n', stdout);
-    
+    sleep_sec(2);
+    printf("(2s elapsed, fflush was called)\n");
+
     return 0;
 }
